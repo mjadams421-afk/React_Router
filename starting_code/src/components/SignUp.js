@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { signUp } from "../features/session/sessionSlice"
 import { useDispatch } from "react-redux";
 // import useNavigate
-
+import { useNavigate } from "react-router-dom";
+const navigate = useNavigate();
 export default function SignUp () {
   const [username, setUsername] = useState("");
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ export default function SignUp () {
     e.preventDefault();
     dispatch(signUp({username: username}));
     // imperatively redirect the user to /profile
+    navigate("/profile");
   }
 
   return (
